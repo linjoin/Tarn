@@ -1,0 +1,602 @@
+================================================================================
+              Tarn 第三方开源组件许可证清单
+              Third-Party Open Source Licenses
+================================================================================
+
+  本文件列出 Tarn 二进制在编译时静态/动态链接的第三方开源软件组件及其
+  许可证信息，以履行 MIT、Apache-2.0、BSD 等开源许可证的披露义务。
+
+  各组件的完整许可证文本可在其源代码仓库查阅：
+  https://crates.io/crates/<name>
+
+  本文件由版权人 linjoin 维护，随 Tarn 版本更新。
+
+--------------------------------------------------------------------------------
+
+## 一、直接依赖 (workspace.dependencies)
+
+### 1. serde
+  - 版本：1.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：序列化框架
+  - 仓库：https://github.com/serde-rs/serde
+
+### 2. serde_json
+  - 版本：1.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：JSON 序列化
+  - 仓库：https://github.com/serde-rs/json
+
+### 3. toml
+  - 版本：0.8.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：TOML 配置解析
+  - 仓库：https://github.com/toml-rs/toml
+
+### 4. thiserror
+  - 版本：1.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：错误处理派生宏
+  - 仓库：https://github.com/dtolnay/thiserror
+
+### 5. anyhow
+  - 版本：1.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：错误处理
+  - 仓库：https://github.com/dtolnay/anyhow
+
+### 6. tracing
+  - 版本：0.1.x
+  - 许可证：MIT
+  - 用途：结构化日志
+  - 仓库：https://github.com/tokio-rs/tracing
+
+### 7. tracing-subscriber
+  - 版本：0.3.x
+  - 许可证：MIT
+  - 用途：日志订阅器
+  - 仓库：https://github.com/tokio-rs/tracing
+
+### 8. tracing-appender
+  - 版本：0.2.x
+  - 许可证：MIT
+  - 用途：日志文件 appender
+  - 仓库：https://github.com/tokio-rs/tracing
+
+### 9. tokio
+  - 版本：1.x
+  - 许可证：MIT
+  - 用途：异步运行时
+  - 仓库：https://github.com/tokio-rs/tokio
+
+### 10. rayon
+  - 版本：1.10.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：数据并行（CPU 密集型遍历）
+  - 仓库：https://github.com/rayon-rs/rayon
+
+### 11. crossbeam-channel
+  - 版本：0.5.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：多生产者多消费者通道
+  - 仓库：https://github.com/crossbeam-rs/crossbeam
+
+### 12. clap
+  - 版本：4.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：CLI 框架
+  - 仓库：https://github.com/clap-rs/clap
+
+### 13. globset
+  - 版本：0.4.x
+  - 许可证：MIT OR Unlicense
+  - 用途：glob 模式匹配（DFA 编译）
+  - 仓库：https://github.com/BurntSushi/ripgrep/tree/master/crates/globset
+
+### 14. regex-automata
+  - 版本：0.4.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：正则自动机（globset 依赖）
+  - 仓库：https://github.com/rust-lang/regex/tree/master/regex-automata
+
+### 15. axum
+  - 版本：0.7.x
+  - 许可证：MIT
+  - 用途：Web 框架（WebUI）
+  - 仓库：https://github.com/tokio-rs/axum
+
+### 16. tower
+  - 版本：0.5.x
+  - 许可证：MIT
+  - 用途：服务抽象（axum 依赖）
+  - 仓库：https://github.com/tower-rs/tower
+
+### 17. tower-http
+  - 版本：0.6.x
+  - 许可证：MIT
+  - 用途：HTTP 中间件（CORS / 静态文件 / trace）
+  - 仓库：https://github.com/tower-rs/tower-http
+
+### 18. hyper
+  - 版本：1.x
+  - 许可证：MIT
+  - 用途：HTTP 实现
+  - 仓库：https://github.com/hyperium/hyper
+
+### 19. hyper-util
+  - 版本：0.1.x
+  - 许可证：MIT
+  - 用途：hyper 工具集
+  - 仓库：https://github.com/hyperium/hyper-util
+
+### 20. chrono
+  - 版本：0.4.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：时间处理
+  - 仓库：https://github.com/chronotope/chrono
+
+### 21. uuid
+  - 版本：1.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：UUID 生成
+  - 仓库：https://github.com/uuid-rs/uuid
+
+### 22. once_cell
+  - 版本：1.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：延迟初始化
+  - 仓库：https://github.com/matklad/once_cell
+
+### 23. parking_lot
+  - 版本：0.12.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：同步原语（Mutex/RwLock）
+  - 仓库：https://github.com/Amanieu/parking_lot
+
+### 24. dashmap
+  - 版本：6.x
+  - 许可证：MIT
+  - 用途：并发哈希表
+  - 仓库：https://github.com/xacrimon/dashmap
+
+### 25. io-uring
+  - 版本：0.7.x
+  - 许可证：MIT OR Apache-2.0
+  - 用途：io_uring 异步 IO（批量 stat）
+  - 仓库：https://github.com/tokio-rs/io-uring
+
+--------------------------------------------------------------------------------
+
+## 二、间接依赖（传递依赖，主要）
+
+以下为通过直接依赖传递引入的常见间接依赖（非完整列表，完整依赖树见 Cargo.lock）：
+
+### Rust 标准库
+  - 许可证：MIT OR Apache-2.0
+  - 用途：Rust 核心库
+
+### libc
+  - 许可证：MIT OR Apache-2.0
+  - 用途：C 标准库绑定
+
+### bytes
+  - 许可证：MIT
+  - 用途：字节缓冲区
+
+### futures (futures-core / futures-util / futures-task / futures-channel / futures-sink / futures-macro)
+  - 许可证：MIT OR Apache-2.0
+  - 用途：异步 trait
+
+### mio
+  - 许可证：MIT
+  - 用途：非阻塞 IO（tokio 依赖）
+
+### socket2
+  - 许可证：MIT OR Apache-2.0
+  - 用途：socket 操作
+
+### http
+  - 许可证：MIT OR Apache-2.0
+  - 用途：HTTP 类型
+
+### http-body / http-body-util
+  - 许可证：MIT
+  - 用途：HTTP body 抽象
+
+### matchit
+  - 许可证：MIT
+  - 用途：URL 路由匹配（axum 依赖）
+
+### sync_wrapper
+  - 许可证：MIT OR Apache-2.0
+  - 用途：同步包装器
+
+### tower-layer / tower-service
+  - 许可证：MIT
+  - 用途：tower 中间件层
+
+### httparse
+  - 许可证：MIT OR Apache-2.0
+  - 用途：HTTP 解析器
+
+### httpdate
+  - 许可证：MIT OR Apache-2.0
+  - 用途：HTTP 日期格式
+
+### mime / mime_guess
+  - 许可证：MIT OR Apache-2.0
+  - 用途：MIME 类型
+
+### percent-encoding
+  - 许可证：MIT OR Apache-2.0
+  - 用途：URL 编码
+
+### form_urlencoded
+  - 许可证：MIT OR Apache-2.0
+  - 用途：URL 表单编码
+
+### serde_urlencoded
+  - 许可证：MIT OR Apache-2.0
+  - 用途：URL 编码序列化
+
+### serde_path_to_error
+  - 许可证：MIT OR Apache-2.0
+  - 用途：serde 错误路径
+
+### serde_derive / serde_core / serde_core-derive
+  - 许可证：MIT OR Apache-2.0
+  - 用途：serde 派生宏
+
+### toml_edit / toml_datetime / toml_write
+  - 许可证：MIT OR Apache-2.0
+  - 用途：TOML 编辑
+
+### winnow
+  - 许可证：MIT OR Apache-2.0
+  - 用途：解析器组合子
+
+### indexmap
+  - 许可证：MIT OR Apache-2.0
+  - 用途：有序哈希表
+
+### hashbrown
+  - 许可证：MIT OR Apache-2.0
+  - 用途：哈希表实现
+
+### equivalent
+  - 许可证：MIT OR Apache-2.0
+  - 用途：等价性比较
+
+### ahash
+  - 许可证：MIT OR Apache-2.0 OR Zlib
+  - 用途：非加密哈希
+
+### zerocopy / zerocopy-derive
+  - 许可证：BSD-2-Clause OR Apache-2.0 OR MIT
+  - 用途：零拷贝
+
+### memchr
+  - 许可证：MIT OR Unlicense
+  - 用途：字符串搜索
+
+### aho-corasick
+  - 许可证：MIT OR Unlicense
+  - 用途：多模式字符串匹配
+
+### regex-syntax
+  - 许可证：MIT OR Apache-2.0
+  - 用途：正则语法（globset 依赖）
+
+### bitflags
+  - 许可证：MIT OR Apache-2.0
+  - 用途：位标志
+
+### cfg-if
+  - 许可证：MIT OR Apache-2.0
+  - 用途：条件编译
+
+### lazy_static
+  - 许可证：MIT OR Apache-2.0
+  - 用途：静态初始化
+
+### log
+  - 许可证：MIT OR Apache-2.0
+  - 用途：日志门面
+
+### nu-ansi-term
+  - 许可证：MIT
+  - 用途：ANSI 颜色
+
+### anstream / anstyle / anstyle-parse / anstyle-query / anstyle-wincon
+  - 许可证：MIT OR Apache-2.0
+  - 用途：终端样式
+
+### colorchoice
+  - 许可证：MIT OR Apache-2.0
+  - 用途：颜色选择
+
+### clap_derive / clap_builder / clap_lex
+  - 许可证：MIT OR Apache-2.0
+  - 用途：clap 派生与解析
+
+### heck
+  - 许可证：MIT OR Apache-2.0
+  - 用途：命名转换
+
+### rustversion
+  - 许可证：MIT OR Apache-2.0
+  - 用途：版本检测
+
+### proc-macro2 / quote / syn
+  - 许可证：MIT OR Apache-2.0
+  - 用途：过程宏工具
+
+### unicode-ident
+  - 许可证：MIT OR Apache-2.0 OR Unicode-DFS-2016
+  - 用途：Unicode 标识符
+
+### utf8parse / utf8
+  - 许可证：MIT OR Apache-2.0
+  - 用途：UTF-8 解析
+
+### sharded-slab
+  - 许可证：MIT
+  - 用途：分片 slab（tracing 依赖）
+
+### thread_local
+  - 许可证：MIT OR Apache-2.0
+  - 用途：线程本地存储
+
+### matchers
+  - 许可证：MIT
+  - 用途：日志匹配
+
+### smallvec
+  - 许可证：MIT OR Apache-2.0
+  - 用途：小型向量
+
+### scopeguard
+  - 许可证：MIT OR Apache-2.0
+  - 用途：RAII 作用域守卫
+
+### lock_api
+  - 许可证：MIT OR Apache-2.0
+  - 用途：锁 API 抽象
+
+### parking_lot_core
+  - 许可证：MIT OR Apache-2.0
+  - 用途：parking_lot 核心
+
+### crossbeam-utils / crossbeam-channel / crossbeam-deque / crossbeam-epoch
+  - 许可证：MIT OR Apache-2.0
+  - 用途：并发原语
+
+### either
+  - 许可证：MIT OR Apache-2.0
+  - 用途：Either 类型
+
+### rayon-core
+  - 许可证：MIT OR Apache-2.0
+  - 用途：rayon 核心
+
+### iana-time-zone
+  - 许可证：MIT OR Apache-2.0
+  - 用途：时区数据库
+
+### num-traits
+  - 许可证：MIT OR Apache-2.0
+  - 用途：数值 trait
+
+### getrandom
+  - 许可证：MIT OR Apache-2.0
+  - 用途：随机数源
+
+### rand / rand_core / rand_chacha
+  - 许可证：MIT OR Apache-2.0
+  - 用途：随机数
+
+### ppv-lite86
+  - 许可证：MIT OR Apache-2.0
+  - 用途：SIMD 随机数
+
+### subtle
+  - 许可证：BSD-3-Clause
+  - 用途：常量时间比较
+
+### digest / crypto-common / generic-array
+  - 许可证：MIT OR Apache-2.0
+  - 用途：哈希 trait
+
+### block-buffer
+  - 许可证：MIT OR Apache-2.0 OR Zlib
+  - 用途：块缓冲
+
+### sha1
+  - 许可证：BSD-3-Clause
+  - 用途：SHA-1 哈希
+
+### cpufeatures
+  - 许可证：MIT OR Apache-2.0
+  - 用途：CPU 特性检测
+
+### data-encoding
+  - 许可证：MIT
+  - 用途：Base64 编码
+
+### base64
+  - 许可证：MIT OR Apache-2.0
+  - 用途：Base64 编解码
+
+### ipnet
+  - 许可证：MIT OR Apache-2.0
+  - 用途：IP 网段
+
+### fnv
+  - 许可证：Apache-2.0 OR MIT
+  - 用途：FNV 哈希
+
+### try-lock
+  - 许可证：MIT OR Apache-2.0
+  - 用途：try_lock 原语
+
+### want
+  - 许可证：MIT OR Apache-2.0
+  - 用途：信号通道
+
+### atomic-waker
+  - 许可证：MIT OR Apache-2.0
+  - 用途：原子唤醒器
+
+### slab
+  - 许可证：MIT
+  - 用途：Slab 分配器
+
+### tokio-util
+  - 许可证：MIT
+  - 用途：tokio 工具
+
+### tokio-macros
+  - 许可证：MIT
+  - 用途：tokio 宏
+
+### h2
+  - 许可证：MIT
+  - 用途：HTTP/2
+
+### async-trait
+  - 许可证：MIT OR Apache-2.0
+  - 用途：异步 trait
+
+### futures-macro
+  - 许可证：MIT OR Apache-2.0
+  - 用途：futures 派生宏
+
+### tracing-core / tracing-log / tracing-serde / tracing-attributes
+  - 许可证：MIT
+  - 用途：tracing 核心
+
+### itoa
+  - 许可证：MIT OR Apache-2.0
+  - 用途：整数转字符串
+
+### ryu
+  - 许可证：Apache-2.0 OR BSD-3-Clause
+  - 用途：浮点数转字符串
+
+### unicase
+  - 许可证：MIT OR Apache-2.0
+  - 用途：大小写不敏感字符串
+
+### serde_spanned
+  - 许可证：MIT OR Apache-2.0
+  - 用途：TOML spanned
+
+### errno
+  - 许可证：MIT OR Apache-2.0
+  - 用途：errno 封装
+
+### is_terminal_polyfill
+  - 许可证：MIT OR Apache-2.0
+  - 用途：is_terminal 兼容
+
+### strsim
+  - 许可证：MIT
+  - 用途：字符串相似度（clap 依赖）
+
+### anstream
+  - 许可证：MIT OR Apache-2.0
+  - 用途：终端流
+
+### signal-hook-registry
+  - 许可证：Apache-2.0 OR MIT
+  - 用途：信号注册
+
+### mio
+  - 许可证：MIT
+  - 用途：非阻塞 IO
+
+### pin-project-lite
+  - 许可证：Apache-2.0 OR MIT
+  - 用途：pin projection
+
+### futures-sink
+  - 许可证：MIT OR Apache-2.0
+  - 用途：Sink trait
+
+### tungstenite / tokio-tungstenite
+  - 许可证：MIT OR Apache-2.0
+  - 用途：WebSocket
+
+### http-range-header
+  - 许可证：MIT
+  - 用途：Range header 解析
+
+### generic-array
+  - 许可证：MIT
+  - 用途：泛型数组
+
+--------------------------------------------------------------------------------
+
+## 三、许可证文本摘要
+
+### MIT License
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+### Apache License 2.0
+
+  完整文本：https://www.apache.org/licenses/LICENSE-2.0
+
+  主要条款：
+  - 授予版权许可
+  - 授予专利许可
+  - 保留版权声明
+  - 保留 NOTICE 文件
+  - 修改须标注
+  - 商标不授权
+  - 不提供担保
+  - 责任限制
+
+### BSD 2-Clause / 3-Clause
+
+  完整文本：https://opensource.org/licenses/BSD-3-Clause
+
+  主要条款：
+  - 保留版权声明
+  - 二进制分发须在文档中保留版权声明
+  - 不得用贡献者名义背书
+
+### Unlicense
+
+  完整文本：https://unlicense.org/
+
+  这是公共领域 dedication，放弃所有版权。
+
+--------------------------------------------------------------------------------
+
+## 四、声明
+
+  1. 本清单基于 Tarn v0.9.0 编译时的依赖树整理，可能不完整。
+  2. 完整的依赖树（含版本与 hash）见源码包内的 Cargo.lock（如随版本提供）。
+  3. 各组件的完整许可证文本以其源代码仓库为准。
+  4. 如发现遗漏或错误，请通过 GitHub Issue 反馈。
+
+  根据 MIT / Apache-2.0 / BSD 许可证要求，Tarn 在分发二进制时
+  随附本清单以履行版权声明与许可证披露义务。Tarn 的闭源专有许可
+  （TPL-2.0）不影响上述第三方组件的许可条件。
+
+--------------------------------------------------------------------------------
+
+  Copyright (c) 2025 linjoin. All Rights Reserved.
+  本文件由 Tarn 版权人维护。
+================================================================================
