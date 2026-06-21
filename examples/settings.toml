@@ -1,0 +1,69 @@
+# settings.example.toml — Tarn 引擎全局设置示例
+# 首次安装时复制为 /data/adb/tarn/settings.toml
+# 所有字段都有默认值, 此文件可只写需要覆盖的
+#
+# 设计原则: 只暴露真正生效的字段, 共 22 项。
+
+[engine]
+# === 性能与并发 ===
+parallel_workers = 0                   # 0=自动 (CPU 核数), 1-16 手动指定
+batch_size = 500                       # 单批 unlink 文件数 (合并 syscall)
+io_throttle_ops_per_sec = 0            # 每秒最多删 N 个文件, 0=不限
+io_throttle_bytes_per_sec = 0          # 每秒最多删 N 字节, 0=不限
+
+# === 低功耗调优 (一次开关, 同时应用 nice 19 + 绑小核) ===
+# nice(19) 在所有 Android 设备有效 (CFS 调度器用 nice 值计算
+#   时间片权重, weight = 1024 * 1.25^(-nice), nice 19 → weight ~15, 占 CPU ~1.5%)。
+#   不用 ionice IDLE: Android 的 mq-deadline/none/kyber 调度器下是空操作, CFQ 也已在内核 5.x 移除。
+# CPU 亲和性绑核 (per-thread 全覆盖):
+#   apply_low_power 内部遍历 /proc/self/task/<tid> 对所有线程设亲和性,
+#   覆盖 logger / webui / tokio worker 等已 spawn 的线程, 无遗漏。
+#   cpu_affinity 为空时自动探测小核 (读 cpufreq cpuinfo_max_freq)。
+low_power = true
+# CPU 亲和性: 绑定到这些核心。空 [] = 自动探测小核; [0,1,2,3] = 手动指定。
+# 仅当 low_power = true 时生效。
+cpu_affinity = []
+
+# === 遍历选项 ===
+walk_follow_symlink = false            # 跟随符号链接 (默认 false 安全)
+walk_max_depth = 0                     # 0=不限
+walk_skip_hidden = false               # 跳过 . 开头的文件
+use_getdents = true                    # 用 getdents64 直读目录 (比 std::fs::read_dir 快)
+use_unlinkat = true                    # 用 unlinkat 合并调用 (省 path 解析)
+# [v0.7.6] 文件系统感知限速: ext4 + discard mount 时删除自动走 sync 串行模式
+# 全网调研: ext4+discard 同步 TRIM 阻塞每次 unlink, 批量删除慢 64 倍 (patrick-nagel.net, lwn.net)
+# 开启后探测到 ext4+discard 自动禁用 io_uring 批量删, 走 sync 串行避免 TRIM 风暴
+fs_aware_throttle = true
+# [v0.7.6] openat2 + RESOLVE_NO_SYMLINKS 打开目录 (内核级防 symlink TOCTOU, 5.6+)
+# 运行时检测: openat2 不可用 (ENOSYS) 自动回退 openat
+use_openat2 = true
+
+[schedule]
+default_rule_timeout_sec = 0           # 单条规则最大执行秒数, 0=不限
+
+[run]
+adaptive_rate_limit = true             # 前台忙才限速, 空闲全速
+
+[log]
+level = "info"                         # trace | debug | info | warn | error
+file = "tarn.log"                      # 日志文件名 (固定写在 <config_dir>/logs/ 下)
+keep_files = 3                         # 开机备份保留份数 (0 = 不备份继续追加; >=1 时开机备份):
+                                       #   每次开机把旧 boot.log/tarn.log rename 为 .1, .1→.2, ...
+                                       #   例: keep_files=3 → 保留 boot.log + .1 + .2 + .3, 超出删最旧
+                                       # 运行时日志只追加不轮转 (无论多大), 轮转只发生在下次开机。
+channel_capacity = 8192                # 异步日志通道容量 (满时丢日志不阻塞主线程)
+
+[webui]
+enabled = true                          # daemon 启动时内嵌拉起 WebUI (false 则需手动 `tarn webui`)
+bind = "127.0.0.1"                     # 监听地址 (出于安全默认只本机)
+port = 8080                            # 监听端口
+socket_file = "run/tarn.sock"          # Unix socket (相对路径 = <config_dir>/run/tarn.sock)
+
+[state]
+# 统计轮转: 累计数据达到任一阈值时, 归档当前 totals 到 rotation_history,
+# 然后清零 totals 开始新一轮统计 (history 数组保留, 仅累计 totals 清零)。
+# 让用户能查看每个"周期"的清理量, 而不是只看累计。
+# 两个阈值都为 0 = 永不轮转 (累计一直累加)。
+rotate_after_files = 0                 # 累计删除 N 个文件后轮转 (0 = 不按文件数轮转). 例: 100000
+rotate_after_bytes = 0                 # 累计清理 N 字节后轮转 (0 = 不按字节数轮转). 例: 10737418240 (10 GB)
+keep_rotation_history = 12             # 保留多少份历史归档 (FIFO, 0 = 不保留仅清零)
