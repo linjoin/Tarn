@@ -1,0 +1,31 @@
+# whitelist.toml — Tarn 保护规则
+#
+# 设计理念: Tarn 不内置任何规则。所有保护规则由用户自行寻找、添加。
+# 字段说明详见 examples/whitelist.example.toml 或 docs/CONFIG-SPEC.md
+#
+# 4 种保护类型 (复制下面的模板, 改成你需要的保护):
+#
+#   # 1. 路径保护 (path 不含通配符 = prefix 前缀匹配; 含 * ? [ = 通配符匹配)
+#   [[protect]]
+#   id = "protect-db"
+#   path = "/data/data/com.example/databases"
+#
+#   # 2. 按包名保护 (保护整个 App 的数据目录)
+#   [[protect_package]]
+#   package = "com.bank.app"
+#   # only = ["databases", "shared_prefs"]   # 可选, 仅保护指定子目录
+#
+#   # 3. 按扩展名保护 (全局或限定作用域)
+#   [[protect_ext]]
+#   extensions = ["db", "db-journal", "db-wal", "db-shm"]
+#   # scope = "global"                        # 可选, 默认 global
+#
+#   # 4. 按修改时间保护 (近期文件不动)
+#   [[protect_mtime]]
+#   within_days = 7
+#   # scope = "/sdcard/Download"              # 可选, 默认 global
+#
+# 安全说明:
+#   - 即使本文件为空, 硬编码保护仍永远生效 (不删 /data/adb /system /vendor /proc /sys 等)
+#   - 白名单永远优先于 blacklist.toml 的清理规则 (force_protect)
+#   - 建议至少保护: 银行类 App、数据库文件、近期修改的文件

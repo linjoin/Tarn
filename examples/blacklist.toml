@@ -1,0 +1,28 @@
+# blacklist.toml — Tarn 清理规则
+#
+# 设计理念: Tarn 不内置任何规则。所有清理规则由用户自行寻找、添加。
+# 字段说明详见 examples/blacklist.example.toml 或 docs/CONFIG-SPEC.md
+#
+# 规则结构示例 (复制下面的模板, 改成你需要的规则):
+#
+#   [[rule]]
+#   id = "my-rule"                      # 唯一 ID (kebab-case)
+#   name = "我的清理规则"                # 显示名称
+#   enabled = true                      # 是否启用
+#   priority = 50                       # 1-100, 数字越大优先级越高
+#   # risk 字段已弃用 (Tarn 放弃风险等级制度, dry_run 是唯一安全栅栏)
+#
+#   [rule.trigger]
+#   on = ["manual", "boot"]             # manual / boot / cron / event
+#   # cron_expr = "0 3 * * *"           # on 含 cron 时, 指定 cron 表达式
+#
+#   [[rule.targets]]
+#   path = "/data/data/com.example/cache"
+#   older_than_days = 3                 # 仅删 3 天前的文件
+#   # glob = "**/*"                     # 可选, 通配符匹配
+#   # exclude = ["**/important/**"]     # 可选, 排除项
+#
+# 安全提示:
+#   - 首次添加规则后, 建议先 dry-run 预览: tarn run --dry-run --json
+#   - 硬编码保护永远生效 (不删 /data/adb /system /vendor /proc /sys 等)
+#   - whitelist.toml 中的保护规则永远优先于 blacklist.toml 的清理规则
