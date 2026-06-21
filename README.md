@@ -18,7 +18,7 @@
 > ⚠️ **闭源专有软件声明**
 >
 > 本项目为**闭源专有软件（Proprietary Software）**，仅以编译后的二进制模块形式分发，**不提供源代码**。
-> 使用本软件即视为您已阅读并接受 [《Tarn 专有软件许可协议》(TPL-2.0)](./LICENSE.txt) 全部条款。
+> 使用本软件即视为您已阅读并接受 [《Tarn 专有软件许可协议》(TPL-2.0)](/LICENSE.txt) 全部条款。
 >
 > - ❌ **不开放源代码** · 不接受源代码 PR
 > - ❌ **禁止再分发** · 请只从本仓库 Release 下载
@@ -547,7 +547,7 @@ Tarn 的规则包整理参考了以下社区项目与资源：
 - Android 官方存储规范文档
 - 知乎、CSDN、百度经验等社区教程
 
-感谢以上项目与社区贡献者。Tarn 的二进制编译使用了大量 MIT/Apache-2.0 许可的 Rust 开源 crate，完整清单见 [THIRD_PARTY_LICENSES.txt](THIRD_PARTY_LICENSES.txt)。
+感谢以上项目与社区贡献者。Tarn 的二进制编译使用了大量 MIT/Apache-2.0 许可的 Rust 开源 crate，完整清单见 [THIRD_PARTY_LICENSES.txt](/THIRD_PARTY_LICENSES.txt)。
 
 ---
 
