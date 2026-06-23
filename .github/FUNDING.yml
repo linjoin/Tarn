@@ -1,0 +1,21 @@
+# FUNDING.yml
+# 参考: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+#
+# Tarn 是个人维护的闭源项目，目前不接受赞助。
+# 如未来开放赞助，会在此配置。
+#
+# 可用的赞助平台（取消注释并填入你的信息）：
+#
+# github: linjoin
+# patreon: # 你的 Patreon 用户名
+# open_collective: # 你的 Open Collective 用户名
+# ko_fi: # 你的 Ko-fi 用户名
+# tidelift: # Tidelift
+# community_bridge: # Community Bridge
+# liberapay: # Liberapay
+# issuehunt: # IssueHunt
+# otechie: # Otechie
+# lfx_coding: # LFX Crowdfunding
+# custom: # 自定义赞助链接（数组）
+
+custom: ["https://github.com/linjoin/Tarn#-致谢"]

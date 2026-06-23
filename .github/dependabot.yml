@@ -1,0 +1,24 @@
+# Dependabot 配置
+# 参考: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+#
+# 注意: Tarn 是闭源项目，仓库内不含 Rust 源代码（无 Cargo.toml 入库），
+# 因此 Dependabot 对 Rust 依赖的检查意义有限。这里仅配置 GitHub Actions
+# 依赖检查（如未来添加 CI）。
+
+version: 2
+updates:
+  # GitHub Actions 依赖更新
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
