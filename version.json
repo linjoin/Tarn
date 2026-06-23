@@ -1,6 +1,6 @@
 {
-  "versionCode":76,
-  "version": "v0.9.2",
-  "zipUrl": "https://github.com/linjoin/Tarn/releases/download/%E6%AD%A3%E5%BC%8F%E7%89%88/tarn-v0.9.2-76.zip",
+  "versionCode":81,
+  "version": "v0.9.7",
+  "zipUrl": "https://github.com/linjoin/Tarn/releases/download/v0.9.7/tarn-v0.9.7-81.zip",
   "changelog": "https://github.com/linjoin/Tarn/raw/refs/heads/main/CHANGELOG.md"
 }
