@@ -76,7 +76,7 @@ older_than_days =
 
 **检查清单**：
 
-- [ ] 我已阅读 [清理规则要求.md](https://github.com/linjoin/Tarn/blob/main/docs/清理规则要求.md)
+- [ ] 我已阅读 [清理规则要求.md](https://github.com/linjoin/Tarn/blob/main/清理规则要求.md)
 - [ ] 规则 path 在 ALLOWED_ROOTS 内
 - [ ] 包名准确（已通过 `pm list packages` 确认）
 - [ ] 已 dry-run 验证
