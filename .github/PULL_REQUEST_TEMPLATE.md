@@ -64,7 +64,7 @@ Refs #
 ## 检查清单
 
 - [ ] 我已阅读 [CONTRIBUTING.md](https://github.com/linjoin/Tarn/blob/main/docs/CONTRIBUTING.md)
-- [ ] 我已阅读 [清理规则要求.md](https://github.com/linjoin/Tarn/blob/main/docs/清理规则要求.md)（如涉及规则）
+- [ ] 我已阅读 [清理规则要求.md](https://github.com/linjoin/Tarn/blob/main/清理规则要求.md)（如涉及规则）
 - [ ] 代码/内容风格与项目一致
 - [ ] 未包含敏感信息（token、私人路径等）
 - [ ] 未包含源代码或逆向产物
