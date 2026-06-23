@@ -78,7 +78,7 @@ tail -100 /data/adb/tarn/logs/tarn.log
 
 - [ ] 我已搜索现有 Issue，确认无重复
 - [ ] 我已阅读 [FAQ](https://github.com/linjoin/Tarn/blob/main/docs/FAQ.md)
-- [ ] 我已阅读 [清理规则要求.md](https://github.com/linjoin/Tarn/blob/main/docs/清理规则要求.md)（如涉及规则问题）
+- [ ] 我已阅读 [清理规则要求.md](https://github.com/linjoin/Tarn/blob/main/清理规则要求.md)（如涉及规则问题）
 - [ ] 我已提供完整的环境信息
 - [ ] 我已去除敏感信息（token、私人路径等）
 - [ ] 我理解 Tarn 是闭源项目，不要求公开源代码
